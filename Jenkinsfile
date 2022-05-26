@@ -1,4 +1,4 @@
-node('build_java_11') { 
+node('build_java_11') {
     stage('git') {
         git 'https://github.com/jellapu/Springpetclinic.git'
     }
@@ -8,6 +8,5 @@ node('build_java_11') {
             echo "M2_HOME=${M2_HOME}"
 
         '''
-        sh '/usr/local/apache-maven-3.8.5/bin/clean package'
-}
-    
+        sh '/usr/local/apache-maven-3.8.5/bin/mvn clean package'
+    }   
