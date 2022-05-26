@@ -9,5 +9,5 @@ node('build_java_11') {
 
         '''
         sh '/usr/local/apache-maven-3.8.5/bin/clean package'
-    }
+}
     
