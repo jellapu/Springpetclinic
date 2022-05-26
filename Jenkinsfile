@@ -11,10 +11,4 @@ node('build_java_11') {
         '''
         sh '/usr/local/apache-maven-3.8.5/bin/clean package'
     }
-    stage('archive') {
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
-    }
-    stage('publish test reports') {
-        junit '**/TEST-*.xml'
-    }
-}
+    
