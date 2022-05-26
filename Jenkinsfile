@@ -1,4 +1,5 @@
 node('build_java_11') {
+    properties([pipelineTriggers([upstream('Starter project, ')])])
     stage('git') {
         git 'https://github.com/jellapu/Springpetclinic.git'
     }
