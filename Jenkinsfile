@@ -1,6 +1,7 @@
-node('jdk11-mvn3.8.4') {
+node('build_java_11') {
+    properties([pipelineTriggers([upstream('Starter project, ')])])
     stage('git') {
-        git 'https://github.com/GitPracticeRepo/java11-examples.git'
+        git 'https://github.com/jellapu/Springpetclinic.git'
     }
     stage('build') {
         sh '''
@@ -8,7 +9,7 @@ node('jdk11-mvn3.8.4') {
             echo "M2_HOME=${M2_HOME}"
 
         '''
-        sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'
+        sh '/usr/local/apache-maven-3.8.5/bin/clean package'
     }
     stage('archive') {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
